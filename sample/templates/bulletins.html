@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<p>
+<div class="container" align="center">
+<div class="container jumbotron">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="accordeon" class="panel-group">
+				{% for bulletin in bulletins %}
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }}</a>
+						</h4>
+					</div>
+					<div id="collapse-{{ bulletin.id }}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>{{ bulletin.text }}</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}
