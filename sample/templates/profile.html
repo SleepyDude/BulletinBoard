@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load easy_maps_tags %}
 
 {% block content %}
 <div class="container jumbotron">
@@ -15,6 +16,7 @@
 		<p>Область/край: {{ person.user_state }}</p>
 		<p>Страна: {{ person.user_country }}</p>
 		<p>Индекс: {{ person.user_zip }}</p>
+		<p>{% easy_map person_f_a  200 200 %}</p>
 	{% endif %}
 	{% endfor %}
 {% else %}

@@ -2,6 +2,8 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
+{% load easy_maps_tags cache %}
+
 {% block title %}{% trans "Register for an account" %}{% endblock %}
 
 {% block content %}
@@ -13,8 +15,10 @@
 		    {{ form|crispy }}
 		    <input class="btn btn-primary" type="submit" value="{% trans 'Submit' %}" />
 		</form>
+		{{ person.user_adress }}
 	</div>
 </div>
+{% easy_map 'Russia, Ekaterinburg, Mira 32' 300 400 %}
 {% endblock %}
 
 

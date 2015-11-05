@@ -16,8 +16,10 @@ def home(request, bulletin_id=1):
 	return(render(request,"bulletins.html",context))
 
 def get_profile(request, profile_id = 1):
+	fa = User_profile.objects.get(user=request.user).user_country+' '+User_profile.objects.get(user=request.user).user_adress
 	context={
-		'person': User_profile.objects.get(id=profile_id),
+		'person': User_profile.objects.get(user=request.user),
+		'person_f_a': fa,
 		'users': User_profile.objects.all(),
 	}
 	return(render(request,"profile.html",context))

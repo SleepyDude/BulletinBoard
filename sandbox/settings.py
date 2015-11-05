@@ -50,6 +50,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     #django-crispy-forms
     'crispy_forms',
+    #django-easy_maps
+    'easy_maps',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,10 +127,15 @@ STATICFILES_DIRS = (
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+INCLUDE_REGISTER_URL = True
+# LOGIN_REDIRECT_URL = '/'
 
 # django-crispy-form
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-SITE_ID = 1
-INCLUDE_REGISTER_URL = True
-# LOGIN_REDIRECT_URL = '/'
+
+# django-easy_maps
+
+EASY_MAPS_CENTER = (-41.3, 32)
+
