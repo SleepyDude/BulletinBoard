@@ -4,7 +4,6 @@ from .forms import UserRegForm
 def user_created(sender, request, user, **kwargs):
 	form = UserRegForm(request.POST)
 	data = User_profile(user=user)
-	print(data.full_name)
 	data.full_name = request.POST["full_name"]
 	data.birthday = request.POST["birthday"]
 	data.user_adress = request.POST["user_adress"]

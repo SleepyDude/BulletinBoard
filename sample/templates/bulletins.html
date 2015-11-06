@@ -12,7 +12,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }}</a>
+							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }} by <span style="font-style: italic;">{{ bulletin.user.username }}</span></a>
 						</h4>
 					</div>
 					<div id="collapse-{{ bulletin.id }}" class="panel-collapse collapse">

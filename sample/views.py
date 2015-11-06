@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-
-from .forms import ProfileForm, ContactForm, UserRegForm
+from datetime import datetime
+from .forms import ProfileForm, ContactForm, UserRegForm, BulletinForm
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 from django.core.mail import send_mail
@@ -45,3 +45,22 @@ def contact(request):
 			to_email, 
 			fail_silently = True)
 	return(render(request,"contact.html",context))
+
+def add_bulletin(request):
+	form = BulletinForm(request.POST)
+	context = {
+		'form': form,
+	}
+	return(render(request,"bulletin_form.html",context))
+
+def get_bulletin(request):
+	if request.POST:
+		data = Bulletin(user = request.user)
+		form = BulletinForm(request.POST)
+		if form.is_valid():
+			data.text = form.cleaned_data.get("bulletin_text")
+			data.title = form.cleaned_data.get("bulletin_title")
+			data.user = request.user
+			data.date = datetime.today() 
+			data.save()
+	return redirect('/')

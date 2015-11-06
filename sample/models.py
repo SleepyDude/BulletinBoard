@@ -8,6 +8,7 @@ class Bulletin(models.Model):
 	title = models.CharField(max_length=30)
 	text = models.TextField()
 	date = models.DateField()
+	user = models.ForeignKey(User, default = 1)
 
 class User_profile(models.Model):
 	class Meta:

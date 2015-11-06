@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=UserRegForm), name='registration_register'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contact/', 'sample.views.contact', name="contact"),
+    url(r'^add_bulletin/', 'sample.views.add_bulletin', name="bulletin"),
+    url(r'^get_bulletin/', 'sample.views.get_bulletin'),
 ]

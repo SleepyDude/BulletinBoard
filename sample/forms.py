@@ -23,3 +23,8 @@ class UserRegForm(RegistrationForm):
 	user_state = forms.CharField(max_length = 20)
 	user_country = forms.CharField(max_length = 20)
 	user_zip = forms.IntegerField()
+
+
+class BulletinForm(forms.Form):
+	bulletin_title = forms.CharField(max_length = 40)
+	bulletin_text = forms.CharField()

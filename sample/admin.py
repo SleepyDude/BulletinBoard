@@ -13,7 +13,7 @@ class UserProfileAdmin(UserAdmin):
 
 # Register your models here.
 class BulletinAdmin(admin.ModelAdmin):
-	fields = ('title','text','date')
+	fields = ('title','text','user','date')
 	list_display = ('id','title')
 
 admin.site.register(Bulletin, BulletinAdmin)
