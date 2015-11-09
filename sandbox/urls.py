@@ -18,6 +18,8 @@ from django.contrib import admin
 from sample import regbackend
 from registration.backends.default.views import RegistrationView
 from sample.forms import UserRegForm
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
 	url(r'^$', 'sample.views.home', name='home'),
@@ -28,4 +30,4 @@ urlpatterns = [
     url(r'^contact/', 'sample.views.contact', name="contact"),
     url(r'^add_bulletin/', 'sample.views.add_bulletin', name="bulletin"),
     url(r'^get_bulletin/', 'sample.views.get_bulletin'),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
