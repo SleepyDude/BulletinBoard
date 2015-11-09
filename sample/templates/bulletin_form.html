@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% if request.user.is_authenticated %}
 <div class="container jumbotron">
 <h2 align="center">Bulletin form</h2>
 	<div class="col-md-6 col-md-offset-3">
@@ -12,4 +13,9 @@
 		</form>
 	</div>
 </div>
+{% else %}
+<div class="container jumbotron">
+<h2 align="center">Вам необходимо залогиниться, чтобы добавить объявление</h2>
+</div>
+{% endif %}
 {% endblock %}
