@@ -116,8 +116,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'static_root')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_in_pro', 'our_static')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'static_root')
 STATICFILES_DIRS = (
     ('static', os.path.join(BASE_DIR, 'static_in_pro', 'our_static')),
     #('static', '/home/flekso/sandbox/static'),
