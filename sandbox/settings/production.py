@@ -16,7 +16,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # # Static asset configuration
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # STATIC_ROOT = 'staticfiles'
 # STATIC_URL = '/static/'
 
@@ -26,8 +26,8 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'static_root')
-
+#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_in_env', 'static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_in_pro', 'our_static')
 STATICFILES_DIRS = (
     ('static', os.path.join(BASE_DIR, 'static_in_pro', 'our_static')),
     #('static', '/home/flekso/sandbox/static'),
