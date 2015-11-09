@@ -30,4 +30,8 @@ urlpatterns = [
     url(r'^contact/', 'sample.views.contact', name="contact"),
     url(r'^add_bulletin/', 'sample.views.add_bulletin', name="bulletin"),
     url(r'^get_bulletin/', 'sample.views.get_bulletin'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
