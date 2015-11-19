@@ -52,6 +52,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     #django-easy_maps
     'easy_maps',
+    #python-social
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,6 +80,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #social-auth
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -153,3 +162,28 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 EASY_MAPS_CENTER = (-41.3, 32)
 
+# facebook
+
+SOCIAL_AUTH_FACEBOOK_KEY = '512037415623320'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0e63ad5b387e5d3477e6a90983662cd3'
+
+AUTHENTICATION_BACKENDS = (
+   'social.backends.facebook.FacebookOAuth2',
+   'social.backends.google.GoogleOAuth2',
+   'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+)

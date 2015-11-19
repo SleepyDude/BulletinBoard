@@ -23,13 +23,14 @@ from django.conf import settings
 
 urlpatterns = [
 	url(r'^$', 'sample.views.home', name='home'),
-	url(r'^accounts/profile/', 'sample.views.get_profile', name='profile'),
+	url(r'^accounts/profile/(?P<profile_id>\d+)/', 'sample.views.get_profile', name='profile'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=UserRegForm), name='registration_register'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contact/', 'sample.views.contact', name="contact"),
     url(r'^add_bulletin/', 'sample.views.add_bulletin', name="bulletin"),
     url(r'^get_bulletin/', 'sample.views.get_bulletin'),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

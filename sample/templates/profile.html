@@ -5,9 +5,7 @@
 {% block content %}
 <div class="container jumbotron">
 {% if request.user.is_authenticated %}
-	{%for person in users %}
-	{% if request.user.username == person.user.username %}
-		<h2>Ваш профиль, {{ person.user }}</h2>
+		<h2>Профиль {{ person.user }}</h2>
 		<p>Имя: {{ person.full_name }}</p>
 		<p>День рождения: {{ person.birthday }}</p>
 		<p>E-mail: {{ person.user.email }}</p>
@@ -17,8 +15,6 @@
 		<p>Страна: {{ person.user_country }}</p>
 		<p>Индекс: {{ person.user_zip }}</p>
 		<p>{% easy_map person_f_a  200 200 %}</p>
-	{% endif %}
-	{% endfor %}
 {% else %}
 	<h2 align="center">Вы не вошли в систему</h2>
 {% endif %}

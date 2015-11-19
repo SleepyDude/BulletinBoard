@@ -12,7 +12,12 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }} by <span style="font-style: italic;">{{ bulletin.user.username }}</span></a>
+							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }} by </a>
+							{% for person in persons %}
+							<!-- {% if person.user.username == bulletin.user.username %} -->
+							<a href="accounts/profile/{{ person.id }}/"><span style="font-style: italic;">{{ bulletin.user.username }}</span></a>
+							<!-- {% endif %} -->
+							{% endfor %}
 						</h4>
 					</div>
 					<div id="collapse-{{ bulletin.id }}" class="panel-collapse collapse">
