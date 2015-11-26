@@ -8,19 +8,20 @@ from django.core.mail import send_mail
 from sample.models import Bulletin, User_profile
 
 
-def home(request, bulletin_id=1, profile_id=1):
+def home(request, bulletin_id=1, profile_id=3):
 	context={
 		'bulletin': Bulletin.objects.get(id=bulletin_id),
 		'bulletins': Bulletin.objects.all(),
 		'persons': User_profile.objects.all(),
-		'person': User_profile.objects.get(id=profile_id),
+		'person': User_profile.objects.get(user_id=profile_id),
+
 	}
 	return(render(request,"bulletins.html",context))
 
 def get_profile(request, profile_id = 1):
-	fa = User_profile.objects.get(id=profile_id).user_country+' '+User_profile.objects.get(id=profile_id).user_adress
+	fa = User_profile.objects.get(user_id=profile_id).user_country+' '+User_profile.objects.get(user_id=profile_id).user_adress
 	context={
-		'person': User_profile.objects.get(id=profile_id),
+		'person': User_profile.objects.get(user_id=profile_id),
 		'person_f_a': fa,
 		'users': User_profile.objects.all(),
 	}
