@@ -15,7 +15,7 @@
 							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }}  </a>
 							{% for person in persons %}
 							<!-- {% if person.user.username == bulletin.user.username %} -->
-							<a href="accounts/profile/{{ person.user_id }}/"><span style="font-style: italic; color: #880e4f;">{{ bulletin.user.username }}</span></a>
+							<a href="/accounts/profile/{{ person.user_id }}/"><span style="font-style: italic; color: #880e4f;">{{ bulletin.user.username }}</span></a>
 							<!-- {% endif %} -->
 							{% endfor %}
 						</h4>
