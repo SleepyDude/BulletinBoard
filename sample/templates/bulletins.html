@@ -4,7 +4,7 @@
 {% block content %}
 <p>
 <div class="container" align="center">
-<div class="container jumbotron">
+<div class="container jumbotron" style="padding-bottom: 0px">
 	<div class="row">
 		<div class="col-md-12">
 			<div id="accordeon" class="panel-group">
@@ -12,10 +12,10 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }} by </a>
+							<a href="#collapse-{{ bulletin.id }}" data-parent="#accordeon" data-toggle="collapse">{{ bulletin.title }}  </a>
 							{% for person in persons %}
 							<!-- {% if person.user.username == bulletin.user.username %} -->
-							<a href="accounts/profile/{{ person.user_id }}/"><span style="font-style: italic;">{{ bulletin.user.username }}</span></a>
+							<a href="accounts/profile/{{ person.user_id }}/"><span style="font-style: italic; color: #880e4f;">{{ bulletin.user.username }}</span></a>
 							<!-- {% endif %} -->
 							{% endfor %}
 						</h4>
@@ -27,6 +27,25 @@
 					</div>
 				</div>
 				{% endfor %}
+				<nav>
+				  <ul class="pagination">
+				  	{% if bulletins.has_previous %}
+				    <li>
+				      <a href="/page/{{ bulletins.previous_page_number }}" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    {% endif %}
+				    <li><a href="#">{{ bulletins.number }}</a></li>
+				    {% if bulletins.has_next %}
+				    <li>
+				      <a href="/page/{{ bulletins.next_page_number }}" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				    {% endif %}
+				  </ul>
+				</nav>
 			</div>
 		</div>
 	</div>

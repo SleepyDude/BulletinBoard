@@ -25,7 +25,7 @@ SECRET_KEY = 'i9go=5$(r5(vh6e$e$&nz_8q@%)d(_2v&k3h65$3uv17sxp++9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'sleepy-bulletin-board.herokuapp.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'fleksotherobot@gmail.com'
@@ -152,7 +152,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 INCLUDE_REGISTER_URL = True
-# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
 # django-crispy-form
 

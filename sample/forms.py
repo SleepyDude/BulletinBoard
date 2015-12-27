@@ -26,5 +26,5 @@ class UserRegForm(RegistrationForm):
 
 
 class BulletinForm(forms.Form):
-	bulletin_title = forms.CharField(max_length = 40)
+	bulletin_title = forms.CharField(max_length = 30)
 	bulletin_text = forms.CharField()

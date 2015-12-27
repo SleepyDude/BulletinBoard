@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^add_bulletin/', 'sample.views.add_bulletin', name="bulletin"),
     url(r'^get_bulletin/', 'sample.views.get_bulletin'),
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^page/(?P<page_num>\d+)/$', 'sample.views.home'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

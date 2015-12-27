@@ -6,12 +6,15 @@ from django.contrib.auth import authenticate, login
 from django.conf import settings
 from django.core.mail import send_mail
 from sample.models import Bulletin, User_profile
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-def home(request, bulletin_id=1, profile_id=3):
+def home(request, bulletin_id=1, profile_id=3, page_num=1):
+	bulletins = Bulletin.objects.all()
+	bulletins = Paginator(bulletins,3)
 	context={
 		'bulletin': Bulletin.objects.get(id=bulletin_id),
-		'bulletins': Bulletin.objects.all(),
+		'bulletins': bulletins.page(page_num),
 		'persons': User_profile.objects.all(),
 		'person': User_profile.objects.get(user_id=profile_id),
 
@@ -52,7 +55,7 @@ def contact(request):
 def add_bulletin(request):
 	form = BulletinForm(request.POST)
 	context = {
-		'form': form,
+	'form': form,
 	}
 	return(render(request,"bulletin_form.html",context))
 
@@ -66,4 +69,6 @@ def get_bulletin(request):
 			data.user = request.user
 			data.date = datetime.today() 
 			data.save()
+		else:
+			return redirect('bulletin_form.html')
 	return redirect('/')

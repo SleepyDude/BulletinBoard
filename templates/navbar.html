@@ -19,10 +19,10 @@
         <li><a href="{% url "bulletin" %}">Add bulletin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><i class="fa fa-facebook"></i></a></li>
         {% if request.user.is_authenticated %}
         <li><a href="{% url "auth_logout" %}">Logout</a></li>
         {% else %}
+        <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><i class="fa fa-facebook"></i></a></li>
         <li><a href="{% url "registration_register" %}">Register</a></li>
         {% endif %}
       </ul>
